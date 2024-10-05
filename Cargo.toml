@@ -1,0 +1,16 @@
+[package]
+name = "ss"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.89"
+dashmap = "6.1.0"
+jwalk = "0.8.1"
+serenity = { version = "0.12.2", features = ["cache", "client", "gateway", "model", "native_tls_backend"] }
+songbird = { version = "0.4" }
+symphonia = { version = "0.5.2", features = ["mp3", "wav"] }
+time = { version = "0.3.36", features = ["macros"] }
+tokio = { version = "1.40.0", features = ["macros", "net", "rt-multi-thread", "signal"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter", "time"] }

@@ -1,0 +1,33 @@
+services:
+  saysounds:
+    build:
+      context: .
+      target: development
+    tty: true
+    volumes:
+      - type: bind
+        source: Cargo.lock
+        target: /usr/src/myapp/Cargo.lock
+      - type: bind
+        source: Cargo.toml
+        target: /usr/src/myapp/Cargo.toml
+      - type: bind
+        source: src
+        target: /usr/src/myapp/src
+      - type: bind
+        source: saysounds
+        target: /usr/src/myapp/saysounds
+    env_file:
+      - .env
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    command: /bin/sh -c 'cargo run --release'
+    environment:
+      DISCORD_TOKEN:
+      SS_DIRECTORY:
+
+volumes:
+  database:
+    driver: local
